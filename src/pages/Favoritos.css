@@ -1,0 +1,12 @@
+.favoritos {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .favoritos {
+    padding: 2rem;
+  }
+}

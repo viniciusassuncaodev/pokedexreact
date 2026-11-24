@@ -1,0 +1,24 @@
+.favorite-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 2px solid #e63946;
+  border-radius: 50%;
+  background: #fff;
+  color: #e63946;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.favorite-button--ativo {
+  background: #e63946;
+  color: #fff;
+}

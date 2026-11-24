@@ -1,23 +1,34 @@
-﻿import { useFavoritos } from "../context/FavoritosContext";
+﻿import type { MouseEvent } from "react";
+import { useFavoritos } from "../context/FavoritosContext";
+import "./FavoriteButton.css";
 
 interface FavoriteButtonProps {
   id: number;
 }
 
-export default function FavoriteButton({ id }: FavoriteButtonProps) {
+export function FavoriteButton({ id }: FavoriteButtonProps) {
   const { isFavorito, toggleFavorito } = useFavoritos();
-  const active = isFavorito(id);
-  const label = active ? "Remover dos favoritos" : "Adicionar aos favoritos";
+  const favorito = isFavorito(id);
+
+  function handleClick(event: MouseEvent<HTMLButtonElement>) {
+    // Se o botão estiver dentro de um card clicável (Link), não navega ao favoritar
+    event.preventDefault();
+    event.stopPropagation();
+    toggleFavorito(id);
+  }
 
   return (
     <button
-      className="fav"
       type="button"
-      aria-label={label}
-      aria-pressed={active}
-      onClick={() => toggleFavorito(id)}
+      className={`favorite-button ${favorito ? "favorite-button--ativo" : ""}`}
+      onClick={handleClick}
+      aria-pressed={favorito}
+      aria-label={favorito ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+      title={favorito ? "Remover dos favoritos" : "Adicionar aos favoritos"}
     >
-      {active ? "★" : "☆"}
+      {favorito ? "♥" : "♡"}
     </button>
   );
 }
+
+export default FavoriteButton;

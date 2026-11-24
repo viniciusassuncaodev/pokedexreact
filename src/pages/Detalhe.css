@@ -1,0 +1,33 @@
+.detalhe {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.detalhe__voltar {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #ee5a3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.detalhe__voltar:hover {
+  text-decoration: underline;
+}
+
+.detalhe__msg {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1.1rem;
+}
+
+.detalhe__msg--erro {
+  color: #c62828;
+}
+
+@media (min-width: 640px) {
+  .detalhe {
+    padding: 2rem;
+  }
+}

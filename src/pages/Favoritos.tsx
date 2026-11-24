@@ -1,7 +1,12 @@
-﻿export default function Favoritos() {
+﻿import './Favoritos.css';
+
+export function Favoritos() {
   return (
-    <section>
-      <h2>Seus Pokémon favoritos</h2>
-    </section>
+    <main className="favoritos">
+      <h1>Favoritos</h1>
+      <p>Em construção: aqui vai a lista de Pokémon favoritos.</p>
+    </main>
   );
 }
+
+export default Favoritos;

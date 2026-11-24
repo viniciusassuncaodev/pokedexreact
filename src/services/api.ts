@@ -49,7 +49,9 @@ export async function getPokemonList(
 export async function getPokemonDetail(
   idOrName: string | number,
 ): Promise<PokemonDetail> {
-  const response = await fetch(`${API_URL}/pokemon/${idOrName}`);
+  const response = await fetch(
+    `${API_URL}/pokemon/${String(idOrName).toLowerCase()}`,
+  );
 
   if (!response.ok) {
     throw new Error("Não foi possível carregar os detalhes do Pokémon.");
