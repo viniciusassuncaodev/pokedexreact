@@ -5,8 +5,77 @@
   text-align: center;
 }
 
+.favoritos__titulo {
+  margin: 0 0 1rem;
+  color: #ee5a3c;
+}
+
+.favoritos__msg {
+  margin: 1rem 0;
+}
+
+.favoritos__msg--erro {
+  color: #c62828;
+}
+
+.favoritos__link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #ee5a3c;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.favoritos__link:hover {
+  background: #d94a2d;
+}
+
+.favoritos__grade {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.favoritos__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favoritos__link-card {
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+}
+
+.favoritos__imagem {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.favoritos__nome {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+}
+
 @media (min-width: 640px) {
   .favoritos {
     padding: 2rem;
+  }
+
+  .favoritos__grade {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   }
 }

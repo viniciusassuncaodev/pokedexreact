@@ -1,75 +1,81 @@
-# React + TypeScript + Vite
+# Pokédex React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web de Pokédex feita em React + TypeScript (Vite), com dados da PokéAPI.
+Trabalho Final de Front-end Frameworks (ADS, AV2).
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Lista e busca de Pokémon por nome
+- Página de detalhes (tipos, habilidades, status)
+- Favoritos salvos no localStorage
+- Formulário de contato com validação
+- Navegação com React Router (5 páginas)
 
-## React Compiler
+## Como instalar e usar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/viniciusassuncaodev/pokedexreact
+cd pokedexreact
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Abra http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tecnologias
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+React, TypeScript, Vite, React Router (react-router-dom) e PokéAPI.
 
+## Estrutura de pastas
+
+```text
+pokedexreact/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/   Header, Footer, SearchBar, PokemonCard, PokemonDetails,
+│   │                 TypeBadge, FavoriteButton, ContactForm
+│   ├── context/      FavoritosContext
+│   ├── hooks/        useFetch
+│   ├── pages/        Home, Explorar, Detalhe, Favoritos, Sobre
+│   ├── services/     api.ts (chamadas à PokéAPI)
+│   ├── types/        tipos TypeScript
+│   ├── App.tsx
+│   └── main.tsx
+├── package.json
+└── README.md
 ```
+
+## Rotas
+
+| Rota            | Página    | Descrição                                   |
+| --------------- | --------- | ------------------------------------------- |
+| `/`             | Home      | Página inicial                              |
+| `/explorar`     | Explorar  | Lista de Pokémon com busca                  |
+| `/pokemon/:id`  | Detalhe   | Detalhes de um Pokémon                      |
+| `/favoritos`    | Favoritos | Pokémon marcados como favoritos             |
+| `/sobre`        | Sobre     | Descrição do projeto e formulário de contato |
+
+## Hooks utilizados
+
+- **useState**: estados de formulário, erros e lista de favoritos.
+- **useEffect**: busca de dados na API (dentro do `useFetch`) e gravação dos favoritos no localStorage.
+- **useContext**: acesso aos favoritos, por meio do `useFavoritos`.
+- **useMemo**: memoriza o valor do contexto de favoritos.
+- **useParams**: lê o `id` do Pokémon na rota `/pokemon/:id`.
+- **useFetch** (hook customizado): controla `data`, `loading` e `error` de uma requisição.
+
+## Divisão de tarefas
+
+| Pessoa | Integrante | O que fez |
+| ------ | ---------- | --------- |
+| A  | Marcus    | Setup do projeto, router, types, services (`api.ts`), hook `useFetch`, `FavoritosContext`, Header, Footer, PokemonCard, SearchBar e páginas Home e Explorar |
+| B1 | Italo     | TypeBadge, FavoriteButton, PokemonDetails e página Detalhe |
+| B2 | Cleverton | ContactForm, páginas Sobre e Favoritos e este README |
+
+## Telas
+
+![Home](prints/home.png)
+![Explorar](prints/explorar.png)
+![Detalhe](prints/detalhe.png)
+![Favoritos](prints/favoritos.png)
