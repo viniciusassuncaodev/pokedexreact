@@ -67,11 +67,11 @@ pokedexreact/
 
 ## Divisão de tarefas
 
-| Pessoa | Integrante | O que fez |
-| ------ | ---------- | --------- |
-| A  | Marcus    | Setup do projeto, router, types, services (`api.ts`), hook `useFetch`, `FavoritosContext`, Header, Footer, PokemonCard, SearchBar e páginas Home e Explorar |
-| B1 | Italo     | TypeBadge, FavoriteButton, PokemonDetails e página Detalhe |
-| B2 | Cleverton | ContactForm, páginas Sobre e Favoritos e este README |
+| Pessoa | Integrante                          | O que fez |
+| ------ | ----------------------------------- | --------- |
+| A      | Marcus Vinicius de Assunção Bomfim  | Setup do projeto, router, types, services (`api.ts`), hook `useFetch`, `FavoritosContext`, Header, Footer, PokemonCard, SearchBar e páginas Home e Explorar |
+| B      | Italo Gabriel Santos Oliveira       | TypeBadge, FavoriteButton, PokemonDetails e página Detalhe |
+| C      | Cleverton Robson Carvalho Brasil    | ContactForm, páginas Sobre e Favoritos e este README |
 
 ## Telas
 
